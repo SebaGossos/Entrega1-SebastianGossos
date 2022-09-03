@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+
+
+
+{% block title %}
+Formulario Cliente
+{% endblock %}
+
+
+{% block inicio %}
+<form action="" method="POST">
+   {% csrf_token %}
+   
+   {{form.as_p}}
+
+   <input type="submit" value="Enviar">
+
+</form>
+{{ lineas.Ex_compañia }}<br>
+{{ lineas.Numero_celular }}<br>
+{{ clientes.Nombre_cliente }}<br>
+{{ clientes.Email_cliente }}<br>
+{{ clientes.Dni_cliente }}<br>
+
+
+{% endblock %}
+
+
