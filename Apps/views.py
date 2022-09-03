@@ -16,10 +16,10 @@ def Registro_Cliente(request):
             data = Formulario.cleaned_data
 
             lineaTelefonica1 = Linea_telefonica(Numero_celular = data.get('Numero_celular'),Ex_compañia = data.get('Ex_compañia'))
-            lineaTelefonica1.save
+            lineaTelefonica1.save()
 
-            cliente1 = Cliente(Nombre_cliente = data.get('Nombre_cliente'), Email_cliente = data.get('Email_cliente'))
-            cliente1.save
+            cliente1 = Cliente(Nombre_cliente = data.get('Nombre_cliente'), Email_cliente = data.get('Email_cliente'), Dni_cliente = data.get('Dni_cliente'))
+            cliente1.save()
 
             empleados = {
                 'Messi': 43123453,
@@ -33,8 +33,11 @@ def Registro_Cliente(request):
             empleado, dni = random.choice(list(empleados.items()))
 
             Empleado1 = Empleado(Nombre_empleado = empleado, Dni_empleado = dni)
-            Empleado1.save
+            Empleado1.save()
+
             return redirect ('AppsClienteFormulario')
+        
+                
     Lineas = Linea_telefonica.objects.all()
     Clientes = Cliente.objects.all()
     Empleados = Empleado.objects.all()
@@ -42,7 +45,7 @@ def Registro_Cliente(request):
     context = {
         'form': Formulario_cliente(),
         'lineas': Lineas,
-        'clientes':Clientes,
-        'empleados':Empleados
+        'clientes': Clientes,
+        'empleados': Empleados,
     }
-    return render(request, 'Apps/clienteFormulario.html',context)
+    return render(request, 'Apps/clienteFormulario.html', context)

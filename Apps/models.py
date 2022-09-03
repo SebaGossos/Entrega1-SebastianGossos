@@ -12,4 +12,4 @@ class Cliente (models.Model):
 
 class Empleado (models.Model):
     Nombre_empleado = models.CharField(max_length=33)
-    Dni_empleado = models.IntegerField(unique=True)
+    Dni_empleado = models.IntegerField()
