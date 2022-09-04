@@ -3,20 +3,12 @@
 
 
 {% block title %}
-Fomulario Cliente
+Resultado busqueda Cliente
 {% endblock %}
 
 
 {% block inicio %}
 
-<form action="" method="POST">
-   {% csrf_token %}
-   
-   {{form.as_p}}
-
-   <input type="submit" value="Buscar">
-
-</form>
 
 {% for linea in lineas %}
       Tu ex compañia es: {{ linea.Ex_compañia }} y tu numero de celular es: {{ linea.Numero_celular }}. <br>
@@ -27,9 +19,7 @@ Fomulario Cliente
 {% endfor %}
 
 {% for empleado in empleados %}
-      Nombre de empleado que atendio a este cliente: {{ empleado.Nombre_empleado }}, Dni del empleado: {{ empleado.Dni_empleado }}. <br>
+      Nombre de empleado que atendio a este cliente: {{ empleado.Nombre_empleado }}, Dni del empleado: {{ empleado.Dni_empleado }}. <br> <br>
 {% endfor %}
 
 {% endblock %}
-
-

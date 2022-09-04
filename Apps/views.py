@@ -49,3 +49,32 @@ def Registro_Cliente(request):
         'empleados': Empleados,
     }
     return render(request, 'Apps/clienteFormulario.html', context)
+
+
+
+def busqueda_cliente (request):
+
+    context = {
+        'form': BusquedaClienteFormulario()
+    }
+    return render(request, 'Apps/busqueda_cliente_formulario.html', context)
+
+
+
+def resultado_busqueda_cliente(request):
+
+    dni = request.GET.get('dni')
+
+    cliente = Cliente.objects.filter(Dni_cliente__icontains=dni)
+    
+
+
+    context = {
+        'clientes': cliente,
+        
+    }
+
+
+    return render(request,'Apps/resultado_busqueda_cliente.html', context)
+
+
