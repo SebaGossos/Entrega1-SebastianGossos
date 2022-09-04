@@ -7,3 +7,6 @@ class Formulario_cliente (forms.Form):
     Nombre_cliente = forms.CharField()
     Email_cliente = forms.EmailField()
     Dni_cliente = forms.IntegerField()
+
+class BusquedaClienteFormulario(forms.Form):
+    dni = forms.IntegerField()
